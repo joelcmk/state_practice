@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Movie from './Movie';
 
-function App() {
+const App = () => {
+
+  const [movies, setMovies] = useState([
+    { name: 'Hombre araña', price: 23, id: 44 },
+    { name: 'Hulk', price: 25, id: 795 },
+    { name: 'Los Increibles', price: 48, id: 3470 }
+  ]
+  )
+
+  console.log(movies[2].name)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    < div >
+      {movies.map(movie => (
+        <Movie name={movie.name} price={movie.price} key={movie.price} />
+      ))}
+
+      <form>
+        <input type='text' name='name' />
+        <input type='text' name='price' />
+        <button>Submit</button>
+      </form >
+    </div >
   );
 }
 
