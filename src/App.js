@@ -7,10 +7,26 @@ const App = () => {
     { name: 'Hombre araña', price: 23, id: 44 },
     { name: 'Hulk', price: 25, id: 795 },
     { name: 'Los Increibles', price: 48, id: 3470 }
-  ]
-  )
+  ])
 
-  console.log(movies[2].name)
+  const [price, setPrice] = useState('');
+  const [name, setName] = useState('');
+
+
+  const updateName = (e) => {
+    setName(e.target.value)
+  }
+
+  const updatePrice = (e) => {
+    setPrice(e.target.value)
+  }
+
+  const addMovie = (e) => {
+    e.preventDefault()
+    setMovies(prevMovie => [...prevMovie, { name: name, price: price }]);
+  }
+
+  console.log(price)
   return (
 
     < div >
@@ -18,9 +34,9 @@ const App = () => {
         <Movie name={movie.name} price={movie.price} key={movie.price} />
       ))}
 
-      <form>
-        <input type='text' name='name' />
-        <input type='text' name='price' />
+      <form onSubmit={addMovie}>
+        <input type='text' name='name' value={name} onChange={updateName} />
+        <input type='text' name='price' value={price} onChange={updatePrice} />
         <button>Submit</button>
       </form >
     </div >
