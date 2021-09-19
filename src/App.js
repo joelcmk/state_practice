@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 const App = () => {
   const [name, setName] = useState('');
+  const [movieName, setMovieName] = useState('');
+  const [age, setAge] = useState('');
   const [lastName, setLastName] = useState({ value: '', name: '' });
   const [movies, setMovies] = useState(
     [{ name: 'Joaquin', age: 34 },
@@ -25,6 +27,21 @@ const App = () => {
     setLastName({ value: e.target.value })
   }
 
+  const handleName = (e) => {
+    setMovieName(e.target.value)
+  }
+
+  const addMovieName = (e) => {
+    e.preventDefault();
+    setMovies(prevMovie => [...prevMovie, { name: movieName, age: age }]);
+  }
+
+  const handleAge = (e) => {
+    setAge(e.target.value)
+  }
+
+
+
 
 
   return (
@@ -35,11 +52,19 @@ const App = () => {
         <li>{`${re.name} ${re.age}`}</li>
       ))}
       <form onSubmit={addLastName} >
+        What's your last name?
         <input name="name" type="text" value={lastName.value} onChange={handleChange} />
         <input type="submit" />
       </form>
       <form onSubmit={addName} >
+        Click here to add your name
         <input type="submit" name="" />
+      </form>
+      <form onSubmit={addMovieName}>
+        Add a movie and the price
+        <input name="name" type="text" value={movieName} onChange={handleName} />
+        <input name="age" type="text" value={age} onChange={handleAge} />
+        <input type="submit" />
       </form>
     </div>
   );
