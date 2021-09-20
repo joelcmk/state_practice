@@ -11,6 +11,7 @@ const App = () => {
     { name: 'Lalo', age: 50 }
     ]
   )
+  const [test, setTest] = useState('hello world.');
 
   const addName = (e) => {
     e.preventDefault();
@@ -40,9 +41,10 @@ const App = () => {
     setAge(e.target.value)
   }
 
+  const stringCount = (string, letter) => string.split('').filter(ele => ele === letter).length;
 
 
-
+  console.log(stringCount('hello como estas quieres pan, Elisa?', 'a'))
 
   return (
     <div>
@@ -65,6 +67,7 @@ const App = () => {
         <input name="name" type="text" value={movieName} onChange={handleName} />
         <input name="age" type="text" value={age} onChange={handleAge} />
         <input type="submit" />
+        {stringCount('hello', 'o')}
       </form>
     </div>
   );
