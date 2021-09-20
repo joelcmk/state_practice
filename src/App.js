@@ -41,10 +41,16 @@ const App = () => {
     setAge(e.target.value)
   }
 
-  const stringCount = (string, letter) => string.split('').filter(ele => ele === letter).length;
+  function solucion(a, b) {
+    if (a.length >= b.length) {
+      return 'Hello Joel'
+    } else {
+      return 'hello Yulissa'
+    }
 
+  }
 
-  console.log(stringCount('hello como estas quieres pan, Elisa?', 'a'))
+  console.log(solucion('me', 'soon'));
 
   return (
     <div>
@@ -67,7 +73,6 @@ const App = () => {
         <input name="name" type="text" value={movieName} onChange={handleName} />
         <input name="age" type="text" value={age} onChange={handleAge} />
         <input type="submit" />
-        {stringCount('hello', 'o')}
       </form>
     </div>
   );
