@@ -47,10 +47,18 @@ const App = () => {
     } else {
       return 'hello Yulissa'
     }
-
   }
 
-  console.log(solucion('me', 'soon'));
+  function checkPalandrum(str) {
+    var lowerCase = str.toLowerCase();
+    if (lowerCase === lowerCase.split('').reverse().join('')) {
+      return 'joel';
+    } else {
+      return 'Yulissa';
+    }
+  }
+
+  console.log(checkPalandrum('Bob'));
 
   return (
     <div>
